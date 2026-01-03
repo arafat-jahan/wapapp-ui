@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_ui_clone/widgets/chat_list.dart';
 import 'package:whatsapp_ui_clone/widgets/contacts_list.dart';
 import 'package:whatsapp_ui_clone/widgets/web_chat_appbar.dart';
 import 'package:whatsapp_ui_clone/widgets/web_profile_bar.dart';
@@ -13,18 +14,20 @@ class WebScreenLayout extends StatelessWidget {
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          // LEFT PANEL
           Expanded(
             child: SingleChildScrollView(
               child: Column(
-                children: [
+                children: const [
                   WebProfileBar(),
-                  WebScreenLayout(),
-                  WebSearchBar(),//web searchbar
+                  WebSearchBar(),
                   ContactsList(),
                 ],
               ),
             ),
           ),
+
+          // RIGHT PANEL
           Container(
             width: MediaQuery.of(context).size.width * 0.75,
             decoration: const BoxDecoration(
@@ -33,15 +36,15 @@ class WebScreenLayout extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            child:Column(
-              children: [
-                WebChatAppbar()
-
+            child: Column(
+              children: const [
+                WebChatAppbar(),
+                Expanded(
+                  child: ChatList(),
+                ),
               ],
-            ) ,
+            ),
           ),
-
-          //web screen
         ],
       ),
     );
