@@ -9,16 +9,15 @@ class ContactsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 10),
-      child: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              shrinkWrap: true,
-              itemCount: info.length,
-              itemBuilder: (context, index) {
-                return InkWell(
-                   onTap: (){},
-                    child: Padding(
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: info.length,
+        itemBuilder: (context, index) {
+          return Column(
+            children: [
+              InkWell(
+                onTap: () {},
+                child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ListTile(
                     title: Text(
@@ -46,15 +45,16 @@ class ContactsList extends StatelessWidget {
                       ),
                     ),
                   ),
-                )
-                );
-              },
-            ),
-          ),
-          const Divider(color: dividerColor,indent: 85,)
-        ],
+                ),
+              ),
+              const Divider(
+                color: dividerColor,
+                indent: 85,
+              ),
+            ],
+          );
+        },
       ),
     );
-
   }
 }
